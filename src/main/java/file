@@ -1,0 +1,33 @@
+fork-join framwork is an implementation of the executorService interface for parallel execution
+..This framwork helps to make an algorithm parallel
+. we do not have to bother about low level synchor or locks
+. it is a divide and conquer mechanism
+. larger tasks can be divided into smaller ones and then we have to combine the subsolutions into the final solutions
+of the problem
+. important: subtasks have to be independent in order to be executed in parallel
+. so the main concept is that fork-join framwork breaks the tasks into smaller subtasks until
+these subtasks are simple enough to solve without further breakups
+. for example: parallel merge sort, parallel maximum finding etx.
+
+
+RecuriveTask<T> it returns a generic T type
+all the tasks we want to execute in parallel is a subclass of this class
+ we have to override the compute() method that will return the solution of the subprolem
+
+ RecusiveAction it is a task, but without any return value
+
+ fork-join pool
+ basically it is a thread pool for executing fork-join tasks
+ work-stealing: a task is not equivalent to a thread!!!
+      tasks are lightweight threads so fork-join will be efficient even when there are a hugge number of tasks
+
+      so forkjoinpool creates a fix number of threads " usually the number of cpu cores
+      these threads are executing the tasks but if a thread has no task: it can steal a task from more
+      busy threads- tasks are distributed to all the threads in the thread pool
+      fork-join framework can handle the problem of load baalancing quite efficiently
+
+
+
+      fork:splits the given task into smaller subtasks that can be executed in a parallel manner
+
+      joinn: the splitted tasks are being executed and after all of them are finished and merged into one result
