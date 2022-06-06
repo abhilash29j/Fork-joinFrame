@@ -31,3 +31,18 @@ all the tasks we want to execute in parallel is a subclass of this class
       fork:splits the given task into smaller subtasks that can be executed in a parallel manner
 
       joinn: the splitted tasks are being executed and after all of them are finished and merged into one result
+
+
+
+      //stream api explained
+
+      ..streams are supporting starting in java 8
+      ..basically streams introduce fundtional programming to the java programming ecosystem
+
+      in cs funtiional programming is a programming paradigm where programs are constructed by applying and composing functions
+
+      .streams rely havaily on lambda expressions
+
+      .we can construct parallel operations quite easily with streams
+
+      lambda expressions are simialar to methods, but they do not need a name and they can be implemented right in the body of a method
